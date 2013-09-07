@@ -41,6 +41,7 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 		require_once(WCF_DIR.'lib/system/api/twofa/PHPGangsta/GoogleAuthenticator.php');
 		
 		$ga = new \PHPGangsta_GoogleAuthenticator();
+		$twofaHandler = \wcf\system\twofa\TwoFAHandler::getInstance();
 		
 		switch ($eventName) {
 			case 'readData':
@@ -51,7 +52,7 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 				}
 				else {
 					if (isset($_POST['twofaSecret'])) $this->secret = $_POST['twofaSecret'];
-					else $this->secret = $ga->createSecret();
+					else $this->secret = $twofaHandler->generateSecret();
 					
 					WCF::getTPL()->assign(array(
 						'twofaSecret' => $this->secret,
@@ -64,28 +65,24 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 				if (isset($_POST['twofaDisable'])) $this->disable = true;
 			break;
 			case 'validate':
-				if ($this->secret = WCF::getUser()->twofaSecret) {
+				if (WCF::getUser()->twofaSecret) {
 					if ($this->disable) {
 						if (mb_strlen($this->code) === 0) throw new UserInputException('twofaCode');
 						
-						if (!$ga->verifyCode($this->secret, $this->code, 2)) {
-							throw new UserInputException('twofaCode', 'notValid');
-						}
+						$twofaHandler->validate($this->code, WCF::getUser());
 					}
 				}
 				else if (isset($_POST['twofaSecret'])) {
 					$this->secret = $_POST['twofaSecret'];
 					if (mb_strlen($this->code) === 0) return;
 					
-					if (!$ga->verifyCode($this->secret, $this->code, 2)) {
-						throw new UserInputException('twofaCode', 'notValid');
-					}
+					$twofaHandler->validate($this->code, new \wcf\data\user\User(null, array('userID' => WCF::getUser()->userID, 'twofaSecret' => $this->secret)));
 				}
 			break;
 			case 'save':
 				if (mb_strlen($this->code) === 0) return;
 				
-				if ($this->user->__get('twofaSecret')) {
+				if (WCF::getUser()->twofaSecret) {
 					if ($this->disable) {
 						$userAction = new \wcf\data\user\UserAction(array(WCF::getUser()), 'update', array(
 							'data' => array(

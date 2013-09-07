@@ -3,6 +3,8 @@
 	<category name="wcf.user">
 		<item name="wcf.user.twofa"><![CDATA[Zweifaktor-Authentifizierung]]></item>
 		<item name="wcf.user.twofa.code"><![CDATA[Zweifaktor-Code]]></item>
+		<item name="wcf.user.twofa.code.error.notValid"><![CDATA[Der angegebene Code ist ungültig.]]></item>
+		<item name="wcf.user.twofa.code.error.used"><![CDATA[Der angegebene Code wurde bereits verwendet und kann aus Sicherheitsgründen nicht erneut verwendet werden. Warten Sie bitte bis ein neuer Code erzeugt wurde.]]></item>
 		<item name="wcf.user.twofa.code.description"><![CDATA[Geben Sie den Code der Ihnen angezeigt wird ein, um die Zweifaktor-Authentifizierungs-Einstellungen zu ändern.]]></item>
 		<item name="wcf.user.twofa.secret"><![CDATA[Zweifaktor-Schlüssel]]></item>
 		<item name="wcf.user.twofa.enable.success"><![CDATA[Die Zweifaktor-Authentifizierung wurde erfolgreich aktiviert.]]></item>
