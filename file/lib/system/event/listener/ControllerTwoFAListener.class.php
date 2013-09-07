@@ -24,6 +24,7 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 			case 'wcf\action\LogoutAction':
 				return;
 		}
+		
 		require_once(WCF_DIR.'lib/system/api/twofa/PHPGangsta/GoogleAuthenticator.php');
 		
 		$ga = new \PHPGangsta_GoogleAuthenticator();
@@ -40,6 +41,9 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 				if (!isset($_POST['twofaCode']) || mb_strlen($_POST['twofaCode']) === 0) throw new UserInputException('twofaCode');
 				$twofaHandler->validate($_POST['twofaCode'], WCF::getUser());
 				WCF::getSession()->register('twofa', true);
+				
+				\wcf\util\HeaderUtil::redirect($_SERVER['REQUEST_URI']);
+				exit;
 			}
 			catch (\wcf\system\exception\UserInputException $e) {
 				$errorField = $e->getField();
