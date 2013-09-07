@@ -1,3 +1,3 @@
-[submodule "file/lib/system/api/2fa"]
-	path = file/lib/system/api/2fa
+[submodule "file/lib/system/api/twofa"]
+	path = file/lib/system/api/twofa
 	url = git://github.com/PHPGangsta/GoogleAuthenticator.git

@@ -6,7 +6,7 @@
 			<eventname>readData</eventname>
 			<environment>user</environment>
 			<inherit>0</inherit>
-			<listenerclassname>wcf\system\event\listener\AccountManagementFormTims2FAListener</listenerclassname>
+			<listenerclassname>wcf\system\event\listener\AccountManagementFormTimsTwoFAListener</listenerclassname>
 		</eventlistener>
 		
 		<eventlistener>
@@ -14,7 +14,7 @@
 			<eventname>readFormParameters</eventname>
 			<environment>user</environment>
 			<inherit>0</inherit>
-			<listenerclassname>wcf\system\event\listener\AccountManagementFormTims2FAListener</listenerclassname>
+			<listenerclassname>wcf\system\event\listener\AccountManagementFormTimsTwoFAListener</listenerclassname>
 		</eventlistener>
 		
 		<eventlistener>
@@ -22,7 +22,7 @@
 			<eventname>validate</eventname>
 			<environment>user</environment>
 			<inherit>0</inherit>
-			<listenerclassname>wcf\system\event\listener\AccountManagementFormTims2FAListener</listenerclassname>
+			<listenerclassname>wcf\system\event\listener\AccountManagementFormTimsTwoFAListener</listenerclassname>
 		</eventlistener>
 		
 		<eventlistener>
@@ -30,7 +30,7 @@
 			<eventname>save</eventname>
 			<environment>user</environment>
 			<inherit>0</inherit>
-			<listenerclassname>wcf\system\event\listener\AccountManagementFormTims2FAListener</listenerclassname>
+			<listenerclassname>wcf\system\event\listener\AccountManagementFormTimsTwoFAListener</listenerclassname>
 		</eventlistener>
 	</import>
 </data>

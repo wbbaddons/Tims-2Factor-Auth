@@ -9,10 +9,10 @@ use \wcf\system\WCF;
  * @author	Tim Düsterhus
  * @copyright	2012 - 2013 Tim Düsterhus
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode>
- * @package	be.bastelstu.wcf.github
+ * @package	be.bastelstu.wcf.twofa
  * @subpackage	system.event.listener
  */
-class AccountManagementFormTims2FAListener implements \wcf\system\event\IEventListener {
+class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventListener {
 	/**
 	 * secret to use
 	 * 
@@ -28,99 +28,91 @@ class AccountManagementFormTims2FAListener implements \wcf\system\event\IEventLi
 	public $code = '';
 	
 	/**
-	 * should 2fa be disabled
+	 * should twofa be disabled
 	 * 
 	 * @var boolean
 	 */
 	public $disable = 0;
 	
 	/**
-	 * user object to use
-	 * 
-	 * @var \wcf\data\user\User
-	 */
-	public $user = null;
-	
-	/**
 	 * @see	\wcf\system\event\IEventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
-		require_once(WCF_DIR.'lib/system/api/2fa/PHPGangsta/GoogleAuthenticator.php');
+		require_once(WCF_DIR.'lib/system/api/twofa/PHPGangsta/GoogleAuthenticator.php');
 		
 		$ga = new \PHPGangsta_GoogleAuthenticator();
-		if ($this->user === null) $this->user = WCF::getUser();
 		
 		switch ($eventName) {
 			case 'readData':
-				if ($this->secret = $this->user->__get('2faSecret')) {
+				if ($this->secret = WCF::getUser()->twofaSecret) {
 					WCF::getTPL()->assign(array(
-						'_2faDisable' => $this->disable
+						'twofaDisable' => $this->disable
 					));
 				}
 				else {
-					if (isset($_POST['2faSecret'])) $this->secret = $_POST['2faSecret'];
+					if (isset($_POST['twofaSecret'])) $this->secret = $_POST['twofaSecret'];
 					else $this->secret = $ga->createSecret();
 					
 					WCF::getTPL()->assign(array(
-						'_2faSecret' => $this->secret,
-						'_2faQR' => $ga->getQRCodeGoogleUrl(PAGE_TITLE, $this->secret)
+						'twofaSecret' => $this->secret,
+						'twofaQR' => $ga->getQRCodeGoogleUrl(PAGE_TITLE, $this->secret)
 					));
 				}
 			break;
 			case 'readFormParameters':
-				if (isset($_POST['2faCode'])) $this->code = $_POST['2faCode'];
-				if (isset($_POST['2faDisable'])) $this->disable = true;
+				if (isset($_POST['twofaCode'])) $this->code = $_POST['twofaCode'];
+				if (isset($_POST['twofaDisable'])) $this->disable = true;
 			break;
 			case 'validate':
-				if ($this->secret = $this->user->__get('2faSecret')) {
+				if ($this->secret = WCF::getUser()->twofaSecret) {
 					if ($this->disable) {
-						if (mb_strlen($this->code) === 0) throw new UserInputException('2faCode');
+						if (mb_strlen($this->code) === 0) throw new UserInputException('twofaCode');
 						
 						if (!$ga->verifyCode($this->secret, $this->code, 2)) {
-							throw new UserInputException('2faCode', 'notValid');
+							throw new UserInputException('twofaCode', 'notValid');
 						}
 					}
 				}
-				else if (isset($_POST['2faSecret'])) {
-					$this->secret = $_POST['2faSecret'];
+				else if (isset($_POST['twofaSecret'])) {
+					$this->secret = $_POST['twofaSecret'];
 					if (mb_strlen($this->code) === 0) return;
 					
 					if (!$ga->verifyCode($this->secret, $this->code, 2)) {
-						throw new UserInputException('2faCode', 'notValid');
+						throw new UserInputException('twofaCode', 'notValid');
 					}
 				}
 			break;
 			case 'save':
 				if (mb_strlen($this->code) === 0) return;
 				
-				if ($this->user->__get('2faSecret')) {
+				if ($this->user->__get('twofaSecret')) {
 					if ($this->disable) {
 						$userAction = new \wcf\data\user\UserAction(array(WCF::getUser()), 'update', array(
 							'data' => array(
-								'2faSecret' => null
+								'twofaSecret' => null
 							)
 						));
 						$userAction->executeAction();
+						WCF::getUser()->twofaSecret = null;
 						
 						$success = WCF::getTPL()->get('success') ?: array();
-						$success[] = 'wcf.user.2fa.disable.success';
+						$success[] = 'wcf.user.twofa.disable.success';
 						WCF::getTPL()->assign('success', $success);
 					}
 				}
 				else {
 					$userAction = new \wcf\data\user\UserAction(array(WCF::getUser()), 'update', array(
 						'data' => array(
-							'2faSecret' => $this->secret
+							'twofaSecret' => $this->secret
 						)
 					));
 					$userAction->executeAction();
+					WCF::getUser()->twofaSecret = $this->secret;
 					
 					$success = WCF::getTPL()->get('success') ?: array();
-					$success[] = 'wcf.user.2fa.enable.success';
+					$success[] = 'wcf.user.twofa.enable.success';
 					WCF::getTPL()->assign('success', $success);
 				}
-				
-				$this->user = new \wcf\data\user\User($this->user->userID);
 			break;
 		}
 	}
