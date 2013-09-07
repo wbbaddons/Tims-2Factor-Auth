@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+	<category name="wcf.user">
+		<item name="wcf.user.2fa"><![CDATA[Zweifaktor-Authentifizierung]]></item>
+		<item name="wcf.user.2fa.code"><![CDATA[Zweifaktor-Code]]></item>
+		<item name="wcf.user.2fa.code.description"><![CDATA[Geben Sie den Code der Ihnen angezeigt wird ein, um die Zweifaktor-Authentifizierungs-Einstellungen zu ändern.]]></item>
+		<item name="wcf.user.2fa.secret"><![CDATA[Zweifaktor-Schlüssel]]></item>
+		<item name="wcf.user.2fa.enable.success"><![CDATA[Die Zweifaktor-Authentifizierung wurde erfolgreich aktiviert.]]></item>
+		<item name="wcf.user.2fa.disable"><![CDATA[Zweifaktor-Authentifizierung deaktivieren]]></item>
+		<item name="wcf.user.2fa.disable.success"><![CDATA[Die Zweifaktor-Authentifizierung wurde erfolgreich deaktiviert.]]></item>
+	</category>
+</language>

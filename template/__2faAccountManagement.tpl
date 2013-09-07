@@ -28,6 +28,7 @@
 					{if $errorType == 'notValid'}{lang}wcf.user.2fa.code.error.notValid{/lang}{/if}
 				</small>
 			{/if}
+			<small>{lang}wcf.user.2fa.code.description{/lang}</small>
 		</dd>
 	</dl>
 </fieldset>

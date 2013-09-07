@@ -21,7 +21,7 @@
 	</requiredpackages>
 	
 	<instructions type="install">
-		<!--instruction type="language">language/*.xml</instruction-->
+		<instruction type="language">language/*.xml</instruction>
 		<instruction type="file">file.tar</instruction>
 		<instruction type="template">template.tar</instruction>
 		<!--instruction type="acpTemplate">acptemplate.tar</instruction-->
