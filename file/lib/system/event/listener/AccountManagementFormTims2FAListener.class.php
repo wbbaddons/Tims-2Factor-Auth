@@ -6,16 +6,39 @@ use \wcf\system\WCF;
 /**
  * Saves token in management.
  *
- * @author 	Tim Düsterhus
+ * @author	Tim Düsterhus
  * @copyright	2012 - 2013 Tim Düsterhus
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode>
  * @package	be.bastelstu.wcf.github
  * @subpackage	system.event.listener
  */
 class AccountManagementFormTims2FAListener implements \wcf\system\event\IEventListener {
+	/**
+	 * secret to use
+	 * 
+	 * @var string
+	 */
 	public $secret = '';
+	
+	/**
+	 * given code
+	 * 
+	 * @var string
+	 */
 	public $code = '';
+	
+	/**
+	 * should 2fa be disabled
+	 * 
+	 * @var boolean
+	 */
 	public $disable = 0;
+	
+	/**
+	 * user object to use
+	 * 
+	 * @var \wcf\data\user\User
+	 */
 	public $user = null;
 	
 	/**
