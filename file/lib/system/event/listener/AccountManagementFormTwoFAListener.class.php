@@ -4,7 +4,7 @@ use \wcf\system\exception\UserInputException;
 use \wcf\system\WCF;
 
 /**
- * Saves token in management.
+ * Adds two factor management.
  *
  * @author	Tim Düsterhus
  * @copyright	2012 - 2013 Tim Düsterhus
@@ -105,6 +105,7 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 					));
 					$userAction->executeAction();
 					WCF::getUser()->twofaSecret = $this->secret;
+					WCF::getSession()->register('twofa', true);
 					
 					$success = WCF::getTPL()->get('success') ?: array();
 					$success[] = 'wcf.user.twofa.enable.success';

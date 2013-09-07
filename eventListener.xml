@@ -32,5 +32,37 @@
 			<inherit>0</inherit>
 			<listenerclassname>wcf\system\event\listener\AccountManagementFormTwoFAListener</listenerclassname>
 		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wcf\page\AbstractPage</eventclassname>
+			<eventname>readParameters</eventname>
+			<environment>user</environment>
+			<inherit>1</inherit>
+			<listenerclassname>wcf\system\event\listener\ControllerTwoFAListener</listenerclassname>
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wcf\page\AbstractPage</eventclassname>
+			<eventname>readParameters</eventname>
+			<environment>admin</environment>
+			<inherit>1</inherit>
+			<listenerclassname>wcf\system\event\listener\ControllerTwoFAListener</listenerclassname>
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wcf\action\AbstractAction</eventclassname>
+			<eventname>readParameters</eventname>
+			<environment>user</environment>
+			<inherit>1</inherit>
+			<listenerclassname>wcf\system\event\listener\ControllerTwoFAListener</listenerclassname>
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wcf\action\AbstractAction</eventclassname>
+			<eventname>readParameters</eventname>
+			<environment>admin</environment>
+			<inherit>1</inherit>
+			<listenerclassname>wcf\system\event\listener\ControllerTwoFAListener</listenerclassname>
+		</eventlistener>
 	</import>
 </data>
