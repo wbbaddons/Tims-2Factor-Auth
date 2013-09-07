@@ -14,7 +14,7 @@
 			<dt>{lang}wcf.user.twofa.secret{/lang}</dt>
 			<dd>
 				<code class="inlineCode">{$twofaSecret}</code><br />
-				<img src="http://api.qrserver.com/v1/create-qr-code/?size=200x200&ecc=M&data=otpauth%3A%2F%2Ftotp%2F{PAGE_TITLE|urlencode}%3Fsecret%3D{$twofaSecret}&qzone=4" alt="" />
+				{if PAGE_TITLE}<img src="http://api.qrserver.com/v1/create-qr-code/?size=200x200&ecc=M&data=otpauth%3A%2F%2Ftotp%2F{PAGE_TITLE|urlencode}%3Fsecret%3D{$twofaSecret}&qzone=4" alt="" />{/if}
 				<input type="hidden" id="twofaSecret" name="twofaSecret" value="{$twofaSecret}" />
 				<small>{lang}wcf.user.twofa.secret.description{/lang}</small>
 			</dd>
