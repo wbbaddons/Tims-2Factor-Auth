@@ -7,8 +7,8 @@
 		<item name="wcf.user.twofa.code.error.notValid"><![CDATA[Der angegebene Code ist ungültig.]]></item>
 		<item name="wcf.user.twofa.code.error.used"><![CDATA[Der angegebene Code wurde bereits verwendet und kann aus Sicherheitsgründen nicht erneut verwendet werden. Warten Sie bitte bis ein neuer Code erzeugt wurde.]]></item>
 		<item name="wcf.user.twofa.code.description"><![CDATA[Geben Sie den Code, der Ihnen angezeigt wird, ein, um die Zweifaktor-Authentifizierungs-Einstellungen zu ändern.]]></item>
-		<item name="wcf.user.twofa.required"><![CDATA[Zweifaktor-Code benötigt]]></item>
-		<item name="wcf.user.twofa.required.code.description"><![CDATA[]]></item>
+		<item name="wcf.user.twofa.required"><![CDATA[Ihr Account ist mit der Zweifaktor-Authentifizierung geschützt. Sie benötigen den aktuellen Code um fortzufahren.]]></item>
+		<item name="wcf.user.twofa.required.code.description"><![CDATA[Geben Sie den Code, der Ihnen in der App angezeigt wird, ein, um fortzufahren.]]></item>
 		<item name="wcf.user.twofa.secret"><![CDATA[Zweifaktor-Schlüssel]]></item>
 		<item name="wcf.user.twofa.secret.description"><![CDATA[Scannen Sie den angezeigten QR-Code, oder geben Sie den angezeigten Schlüssel in Ihrem Google Authenticator ein. Um die Zweifaktor-Authentifizierung zu aktivieren geben Sie nun noch den in der App angezeigten Code unterhalb ein.]]></item>
 		<item name="wcf.user.twofa.enable.success"><![CDATA[Die Zweifaktor-Authentifizierung wurde erfolgreich aktiviert.]]></item>
