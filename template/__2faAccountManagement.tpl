@@ -17,10 +17,17 @@
 			</dd>
 		</dl>
 	{/if}
-	<dl{if $errorField == '2faConfirmation'} class="formError"{/if}>
-		<dt><label for="2faConfirmation">{lang}wcf.user.2fa.confirmation{/lang}</label></dt>
+	<dl{if $errorField == '2faCode'} class="formError"{/if}>
+		<dt><label for="2faCode">{lang}wcf.user.2fa.code{/lang}</label></dt>
 		<dd>
-			<input type="text" id="2faConfirmation" name="2faConfirmation" value="" maxlength="6" class="short" />
+			<input type="text" id="2faCode" name="2faCode" value="" maxlength="6" class="short" />
+			
+			{if $errorField == '2faCode'}
+				<small class="innerError">
+					{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
+					{if $errorType == 'notValid'}{lang}wcf.user.2fa.code.error.notValid{/lang}{/if}
+				</small>
+			{/if}
 		</dd>
 	</dl>
 </fieldset>

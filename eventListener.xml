@@ -8,5 +8,13 @@
 			<inherit>0</inherit>
 			<listenerclassname>wcf\system\event\listener\AccountManagementFormTims2FAListener</listenerclassname>
 		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wcf\form\AccountManagementForm</eventclassname>
+			<eventname>validate</eventname>
+			<environment>user</environment>
+			<inherit>0</inherit>
+			<listenerclassname>wcf\system\event\listener\AccountManagementFormTims2FAListener</listenerclassname>
+		</eventlistener>
 	</import>
 </data>

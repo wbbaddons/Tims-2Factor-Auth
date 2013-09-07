@@ -1,5 +1,6 @@
 <?php
 namespace wcf\system\event\listener;
+use \wcf\system\exception\UserInputException;
 use \wcf\system\WCF;
 
 /**
@@ -12,6 +13,9 @@ use \wcf\system\WCF;
  * @subpackage	system.event.listener
  */
 class AccountManagementFormTims2FAListener implements \wcf\system\event\IEventListener {
+	public $secret = '';
+	public $code = '';
+	
 	/**
 	 * @see	\wcf\system\event\IEventListener::execute()
 	 */
@@ -19,9 +23,36 @@ class AccountManagementFormTims2FAListener implements \wcf\system\event\IEventLi
 		require_once(WCF_DIR.'lib/system/api/2fa/PHPGangsta/GoogleAuthenticator.php');
 		
 		$ga = new \PHPGangsta_GoogleAuthenticator();
-		WCF::getTPL()->assign(array(
-			'_2faSecret' => $secret = $ga->createSecret(),
-			'_2faQR' => $ga->getQRCodeGoogleUrl(PAGE_TITLE, $secret)
-		));
+		
+		switch ($eventName) {
+			case 'readData':
+				if (!$this->secret = WCF::getUser()->__get('2faSecret')) {
+					if (isset($_POST['2faSecret'])) $this->secret = $_POST['2faSecret'];
+					else $this->secret = $ga->createSecret();
+					
+					WCF::getTPL()->assign(array(
+						'_2faSecret' => $this->secret,
+						'_2faQR' => $ga->getQRCodeGoogleUrl(PAGE_TITLE, $this->secret)
+					));
+				}
+			break;
+			case 'validate':
+				if ($this->secret = WCF::getUser()->__get('2faSecret')) {
+					
+				}
+				else if (isset($_POST['2faSecret'])) {
+					$this->secret = $_POST['2faSecret'];
+					
+					if (isset($_POST['2faConfirmation'])) {
+						$this->code = $_POST['2faConfirmation'];
+						
+						if (mb_strlen($this->code) === 0) return;
+						
+						if (!$ga->verifyCode($this->secret, $this->code, 2)) {
+							throw new UserInputException('2faCode', 'notValid');
+						}
+					}
+				}
+		}
 	}
 }
