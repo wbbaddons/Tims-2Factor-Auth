@@ -1,0 +1,1 @@
+ALTER TABLE wcf1_user ADD COLUMN twofaEmergency CHAR(16) DEFAULT NULL;

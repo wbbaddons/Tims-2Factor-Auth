@@ -2,6 +2,7 @@
 namespace wcf\system\event\listener;
 use \wcf\system\exception\UserInputException;
 use \wcf\system\WCF;
+use \wcf\util\PasswordUtil;
 
 /**
  * Adds two factor management.
@@ -100,7 +101,8 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 				else {
 					$userAction = new \wcf\data\user\UserAction(array(WCF::getUser()), 'update', array(
 						'data' => array(
-							'twofaSecret' => $this->secret
+							'twofaSecret' => $this->secret,
+							'twofaEmergency' => $emergency = PasswordUtil::getRandomPassword(16)
 						)
 					));
 					$userAction->executeAction();
@@ -109,7 +111,10 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 					
 					$success = WCF::getTPL()->get('success') ?: array();
 					$success[] = 'wcf.user.twofa.enable.success';
-					WCF::getTPL()->assign('success', $success);
+					WCF::getTPL()->assign(array(
+						'success' => $success,
+						'twofaEmergency' => $emergency
+					));
 				}
 			break;
 		}

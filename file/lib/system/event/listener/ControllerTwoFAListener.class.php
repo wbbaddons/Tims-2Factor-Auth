@@ -3,6 +3,7 @@ namespace wcf\system\event\listener;
 use \wcf\system\exception\AJAXException;
 use \wcf\system\exception\UserInputException;
 use \wcf\system\WCF;
+use \wcf\util\HeaderUtil;
 
 /**
  * Enforces two factor auth.
@@ -39,10 +40,25 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 		if (isset($_POST['twofaForm'])) {
 			try {
 				if (!isset($_POST['twofaCode']) || mb_strlen($_POST['twofaCode']) === 0) throw new UserInputException('twofaCode');
-				$twofaHandler->validate($_POST['twofaCode'], WCF::getUser());
-				WCF::getSession()->register('twofa', true);
-				
-				\wcf\util\HeaderUtil::redirect($_SERVER['REQUEST_URI']);
+				if (\wcf\util\PasswordUtil::secureCompare($_POST['twofaCode'], WCF::getUser()->twofaEmergency)) {
+					// emergency code was used, disable 2 factor
+					WCF::getSession()->register('twofa', true);
+					$userAction = new \wcf\data\user\UserAction(array(WCF::getUser()), 'update', array(
+						'data' => array(
+							'twofaSecret' => null
+						)
+					));
+					$userAction->executeAction();
+					WCF::getUser()->twofaSecret = null;
+					
+					HeaderUtil::delayedRedirect(\wcf\system\request\LinkHandler::getInstance()->getLink('AccountManagement'), WCF::getLanguage()->get('wcf.user.twofa.emergency.success'));
+				}
+				else {
+					$twofaHandler->validate($_POST['twofaCode'], WCF::getUser());
+					WCF::getSession()->register('twofa', true);
+					
+					HeaderUtil::redirect($_SERVER['REQUEST_URI']);
+				}
 				exit;
 			}
 			catch (\wcf\system\exception\UserInputException $e) {

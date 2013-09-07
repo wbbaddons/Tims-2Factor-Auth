@@ -10,5 +10,6 @@ CREATE TABLE wcf1_user_twofa_blacklist (
 );
 
 ALTER TABLE wcf1_user ADD COLUMN twofaSecret CHAR(16) DEFAULT NULL;
+ALTER TABLE wcf1_user ADD COLUMN twofaEmergency CHAR(16) DEFAULT NULL;
 
 ALTER TABLE wcf1_user_twofa_blacklist ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;

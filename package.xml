@@ -6,7 +6,7 @@
 		<packagedescription><![CDATA[]]></packagedescription>
 		<packagedescription language="de"><![CDATA[]]></packagedescription>
 		<isapplication>0</isapplication>
-		<version>1.0.0 Beta 1</version>
+		<version>1.0.0 Beta 2</version>
 		<date>2013-09-07</date>
 		<license><![CDATA[BSD 3-Clause License <http://opensource.org/licenses/BSD-3-Clause>]]></license>
 	</packageinformation>
@@ -31,12 +31,13 @@
 		<instruction type="eventListener">eventListener.xml</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.0.0 Alpha *">
+	<instructions type="update" fromversion="1.0.0 Beta *">
 		<instruction type="language">language/*.xml</instruction>
 		<instruction type="file">file.tar</instruction>
 		<instruction type="template">template.tar</instruction>
 		<instruction type="acpTemplate">acptemplate.tar</instruction>
-		<instruction type="option">option.xml</instruction>
+		<instruction type="sql">update_1.0.0_beta_2.sql</instruction>
+		<!--instruction type="option">option.xml</instruction-->
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>
 	</instructions>
