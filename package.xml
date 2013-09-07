@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="be.bastelstu.wcf.2fa" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+	<packageinformation>
+		<packagename><![CDATA[Tims 2-Factor Authentication]]></packagename>
+		<packagename language="de"><![CDATA[Tims 2-Faktor Authentifizierung]]></packagename>
+		<packagedescription><![CDATA[]]></packagedescription>
+		<packagedescription language="de"><![CDATA[]]></packagedescription>
+		<isapplication>0</isapplication>
+		<version>1.0.0 Alpha 1</version>
+		<date>2013-09-07</date>
+		<license><![CDATA[Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode>]]></license>
+	</packageinformation>
+	
+	<authorinformation>
+		<author><![CDATA[Tim Düsterhus]]></author>
+		<authorurl><![CDATA[http://tims.bastelstu.be]]></authorurl>
+	</authorinformation>
+	
+	<requiredpackages>
+		<requiredpackage minversion="2.0.0 Beta 1">com.woltlab.wcf</requiredpackage>
+	</requiredpackages>
+	
+	<instructions type="install">
+		<!--instruction type="language">language/*.xml</instruction-->
+		<instruction type="file">file.tar</instruction>
+		<instruction type="template">template.tar</instruction>
+		<!--instruction type="acpTemplate">acptemplate.tar</instruction-->
+		<instruction type="sql">install.sql</instruction>
+		<!--instruction type="option">option.xml</instruction-->
+		<instruction type="templateListener">templateListener.xml</instruction>
+		<instruction type="eventListener">eventListener.xml</instruction>
+		<!--instruction type="script" run="standalone">acp/be.bastelstu.wcf.2fa.install.php</instruction-->
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.0 Alpha *">
+		<instruction type="language">language/*.xml</instruction>
+		<instruction type="file">file.tar</instruction>
+		<instruction type="template">template.tar</instruction>
+		<instruction type="acpTemplate">acptemplate.tar</instruction>
+		<instruction type="option">option.xml</instruction>
+		<instruction type="templateListener">templateListener.xml</instruction>
+		<instruction type="eventListener">eventListener.xml</instruction>
+	</instructions>
+</package>
