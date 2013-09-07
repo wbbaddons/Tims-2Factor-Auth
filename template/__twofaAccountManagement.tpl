@@ -1,5 +1,7 @@
 <fieldset>
 	<legend>{lang}wcf.user.twofa{/lang}</legend>
+	<small>{lang}wcf.user.twofa.description{/lang}</small>
+	
 	{if !$twofaSecret|isset}
 		<dl>
 			<dt></dt>
@@ -14,6 +16,7 @@
 				<code class="inlineCode">{$twofaSecret}</code><br />
 				<img src="http://api.qrserver.com/v1/create-qr-code/?size=200x200&ecc=M&data=otpauth%3A%2F%2Ftotp%2F{PAGE_TITLE|urlencode}%3Fsecret%3D{$twofaSecret}&qzone=4" alt="" />
 				<input type="hidden" id="twofaSecret" name="twofaSecret" value="{$twofaSecret}" />
+				<small>{lang}wcf.user.twofa.secret.description{/lang}</small>
 			</dd>
 		</dl>
 	{/if}
