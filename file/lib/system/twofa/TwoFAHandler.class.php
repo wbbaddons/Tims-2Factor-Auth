@@ -8,8 +8,8 @@ use \wcf\system\WCF;
 /**
  * TwoFA Handler
  *
- * @author	Tim DÃ¼sterhus
- * @copyright	2012-2013 Tim DÃ¼sterhus
+ * @author	Tim Düsterhus
+ * @copyright	2012-2013 Tim Düsterhus
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode>
  * @package	be.bastelstu.wcf.twofa
  * @subpackage	system.twofa
