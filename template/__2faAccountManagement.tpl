@@ -1,6 +1,6 @@
 <fieldset>
 	<legend>{lang}wcf.user.2fa{/lang}</legend>
-	{if $__wcf->user->__get('2faSecret')}
+	{if !$_2faSecret|isset}
 		<dl>
 			<dt></dt>
 			<dd>
@@ -20,7 +20,7 @@
 	<dl{if $errorField == '2faCode'} class="formError"{/if}>
 		<dt><label for="2faCode">{lang}wcf.user.2fa.code{/lang}</label></dt>
 		<dd>
-			<input type="text" id="2faCode" name="2faCode" value="" maxlength="6" class="short" />
+			<input type="number" id="2faCode" name="2faCode" value="" maxlength="6" min="0" max="999999" autocomplete="off" class="short" />
 			
 			{if $errorField == '2faCode'}
 				<small class="innerError">
