@@ -10,7 +10,7 @@ use \wcf\system\WCF;
  *
  * @author	Tim Düsterhus
  * @copyright	2012-2013 Tim Düsterhus
- * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode>
+ * @license	BSD 3-Clause License <http://opensource.org/licenses/BSD-3-Clause>
  * @package	be.bastelstu.wcf.twofa
  * @subpackage	system.twofa
  */

@@ -7,9 +7,9 @@ use \wcf\system\WCF;
 /**
  * Enforces two factor auth.
  *
- * @author	Tim DÃ¼sterhus
- * @copyright	2012 - 2013 Tim DÃ¼sterhus
- * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode>
+ * @author	Tim Düsterhus
+ * @copyright	2012 - 2013 Tim Düsterhus
+ * @license	BSD 3-Clause License <http://opensource.org/licenses/BSD-3-Clause>
  * @package	be.bastelstu.wcf.twofa
  * @subpackage	system.event.listener
  */
