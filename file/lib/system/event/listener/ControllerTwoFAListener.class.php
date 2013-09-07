@@ -19,8 +19,12 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 	 * @see	\wcf\system\event\IEventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
+		// 2 factor isn't enabled
 		if (!WCF::getUser()->twofaSecret) return;
+		// code already was asked during this session
 		if (WCF::getSession()->getVar('twofa') === WCF::getUser()->userID) return;
+		
+		// certain pages are always allowed
 		switch (ltrim(\wcf\system\request\RequestHandler::getInstance()->getActiveRequest()->getClassName(), '\\')) {
 			case 'wcf\action\LogoutAction':
 				return;
@@ -31,6 +35,7 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 		$ga = new \PHPGangsta_GoogleAuthenticator();
 		$twofaHandler = \wcf\system\twofa\TwoFAHandler::getInstance();
 		
+		// block AJAX completely
 		if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')) {
 			throw new \wcf\system\exception\AJAXException(WCF::getLanguage()->getDynamicVariable('wcf.user.twofa.required'), AJAXException::INSUFFICIENT_PERMISSIONS);
 		}
