@@ -20,7 +20,7 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 	 */
 	public function execute($eventObj, $className, $eventName) {
 		if (!WCF::getUser()->twofaSecret) return;
-		if (WCF::getSession()->getVar('twofa') === true) return;
+		if (WCF::getSession()->getVar('twofa') === WCF::getUser()->userID) return;
 		switch (ltrim(\wcf\system\request\RequestHandler::getInstance()->getActiveRequest()->getClassName(), '\\')) {
 			case 'wcf\action\LogoutAction':
 				return;
@@ -42,7 +42,7 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 				if (!isset($_POST['twofaCode']) || mb_strlen($_POST['twofaCode']) === 0) throw new UserInputException('twofaCode');
 				if (\wcf\util\PasswordUtil::secureCompare($_POST['twofaCode'], WCF::getUser()->twofaEmergency)) {
 					// emergency code was used, disable 2 factor
-					WCF::getSession()->register('twofa', true);
+					WCF::getSession()->register('twofa', WCF::getUser()->userID);
 					$userAction = new \wcf\data\user\UserAction(array(WCF::getUser()), 'update', array(
 						'data' => array(
 							'twofaSecret' => null
@@ -55,7 +55,7 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 				}
 				else {
 					$twofaHandler->validate($_POST['twofaCode'], WCF::getUser());
-					WCF::getSession()->register('twofa', true);
+					WCF::getSession()->register('twofa', WCF::getUser()->userID);
 					
 					HeaderUtil::redirect($_SERVER['REQUEST_URI']);
 				}
