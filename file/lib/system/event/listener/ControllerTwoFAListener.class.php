@@ -27,6 +27,7 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 		// certain pages are always allowed
 		switch (ltrim(\wcf\system\request\RequestHandler::getInstance()->getActiveRequest()->getClassName(), '\\')) {
 			case 'wcf\action\LogoutAction':
+			case 'wcf\acp\action\LogoutAction':
 				return;
 		}
 		
