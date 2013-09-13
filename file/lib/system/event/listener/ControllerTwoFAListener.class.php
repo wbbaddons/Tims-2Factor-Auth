@@ -19,17 +19,20 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 	 * @see	\wcf\system\event\IEventListener::execute()
 	 */
 	public function execute($eventObj, $className, $eventName) {
+		// certain pages are always allowed
+		$controller = \wcf\system\request\RequestHandler::getInstance()->getActiveRequest()->getRequestObject() ;
+		switch (true) {
+			case $controller instanceof \wcf\acp\action\LogoutAction:
+				return;
+			break;
+			case $controller instanceof \wcf\page\AbstractAuthedPage:
+				if (isset($_REQUEST['at'])) return;
+		}
+		
 		// 2 factor isn't enabled
 		if (!WCF::getUser()->twofaSecret) return;
 		// code already was asked during this session
 		if (WCF::getSession()->getVar('twofa') === WCF::getUser()->userID) return;
-		
-		// certain pages are always allowed
-		switch (ltrim(\wcf\system\request\RequestHandler::getInstance()->getActiveRequest()->getClassName(), '\\')) {
-			case 'wcf\action\LogoutAction':
-			case 'wcf\acp\action\LogoutAction':
-				return;
-		}
 		
 		require_once(WCF_DIR.'lib/system/api/twofa/PHPGangsta/GoogleAuthenticator.php');
 		
