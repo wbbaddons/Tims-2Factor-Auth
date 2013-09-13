@@ -34,7 +34,11 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 		
 		// 2 factor isn't enabled
 		if (!WCF::getUser()->twofaSecret) {
-			if (class_exists('\wcf\system\WCFACP', false) && TWOFA_ACP_REQUIRE) throw new \wcf\system\exception\NamedUserException('Twofa required');
+			// but 2 factor is required for ACP
+			if (WCF::getUser()->userID && class_exists('\wcf\system\WCFACP', false) && TWOFA_ACP_REQUIRE) {
+				throw new \wcf\system\exception\NamedUserException('Twofa required');
+			}
+			
 			return;
 		}
 		
