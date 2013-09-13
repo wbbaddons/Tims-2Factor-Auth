@@ -34,7 +34,7 @@
 		<instruction type="template">template.tar</instruction>
 		<instruction type="acpTemplate">acptemplate.tar</instruction>
 		<instruction type="sql">install.sql</instruction>
-		<!--instruction type="option">option.xml</instruction-->
+		<instruction type="option">option.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>
 	</instructions>
@@ -45,7 +45,7 @@
 		<instruction type="template">template.tar</instruction>
 		<instruction type="acpTemplate">acptemplate.tar</instruction>
 		<instruction type="sql">update_1.0.0_beta_2.sql</instruction>
-		<!--instruction type="option">option.xml</instruction-->
+		<instruction type="option">option.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>
 	</instructions>
