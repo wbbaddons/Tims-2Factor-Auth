@@ -2,7 +2,7 @@
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
 	<category name="wcf.user">
 		<item name="wcf.user.twofa"><![CDATA[Zwei-Wege-Authentifizierung]]></item>
-		<item name="wcf.user.twofa.description"><![CDATA[Die Zwei-Wege-Authentifizierung hilft Ihnen, Ihren Account zu schützen, indem Sie nach jeder Anmeldung nach einem einmaligen Code gefragt werden. Um die Zwei-Wege-Authentifizierung nutzen zu können, benötigen Sie den <a href="" class="externalURL">Google Authenticator</a>.]]></item>
+		<item name="wcf.user.twofa.description"><![CDATA[Die Zwei-Wege-Authentifizierung hilft Ihnen, Ihren Account zu schützen, indem Sie nach jeder Anmeldung nach einem einmaligen Code gefragt werden. Um die Zwei-Wege-Authentifizierung nutzen zu können, benötigen Sie den <a href="https://support.google.com/accounts/answer/1066447?hl=en" class="externalURL">Google Authenticator</a>.]]></item>
 		<item name="wcf.user.twofa.code"><![CDATA[Zwei-Wege-Code]]></item>
 		<item name="wcf.user.twofa.code.error.notValid"><![CDATA[Der angegebene Code ist ungültig.]]></item>
 		<item name="wcf.user.twofa.code.error.used"><![CDATA[Der angegebene Code wurde bereits verwendet und kann aus Sicherheitsgründen nicht erneut verwendet werden. Warten Sie bitte, bis ein neuer Code erzeugt wurde.]]></item>
