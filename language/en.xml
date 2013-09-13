@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en">
 	<category name="wcf.user">
-		<item name="wcf.user.twofa"><![CDATA[Two-factor Authentication]]></item>
-		<item name="wcf.user.twofa.description"><![CDATA[Two-factor Authentication helps protecting your account, as you will be asked a one time code after each login. You need <a href="https://support.google.com/accounts/answer/1066447?hl=en" class="externalURL">Google Authenticator</a> to use Two-factor Authentication.]]></item>
-		<item name="wcf.user.twofa.code"><![CDATA[Two-factor Code]]></item>
+		<item name="wcf.user.twofa"><![CDATA[Two-Factor Authentication]]></item>
+		<item name="wcf.user.twofa.description"><![CDATA[Two-Factor Authentication helps protecting your account, as you will be asked a one time code after each login. You need <a href="https://support.google.com/accounts/answer/1066447?hl=en" class="externalURL">Google Authenticator</a> to use Two-Factor Authentication.]]></item>
+		<item name="wcf.user.twofa.code"><![CDATA[Two-Factor Code]]></item>
 		<item name="wcf.user.twofa.code.error.notValid"><![CDATA[The given code is invalid.]]></item>
 		<item name="wcf.user.twofa.code.error.used"><![CDATA[The given code was already used. For security reasons a single code may not be used more than once. Please wait until a new code was generated.]]></item>
-		<item name="wcf.user.twofa.code.description"><![CDATA[Enter the code that is displayed on your phone to change Two-factor Authentication settings.]]></item>
-		<item name="wcf.user.twofa.emergency.success"><![CDATA[The emergency code was successfully used and Two-factor Authentication was disabled.]]></item>
-		<item name="wcf.user.twofa.required"><![CDATA[Your account is protected with Two-factor authentication. You need the current code to proceed.]]></item>
+		<item name="wcf.user.twofa.code.description"><![CDATA[Enter the code that is displayed on your phone to change Two-Factor Authentication settings.]]></item>
+		<item name="wcf.user.twofa.emergency.success"><![CDATA[The emergency code was successfully used and Two-Factor Authentication was disabled.]]></item>
+		<item name="wcf.user.twofa.required"><![CDATA[Your account is protected with Two-Factor authentication. You need the current code to proceed.]]></item>
 		<item name="wcf.user.twofa.required.code.description"><![CDATA[Enter the code that is displayed on your phone to proceed.]]></item>
-		<item name="wcf.user.twofa.secret"><![CDATA[Two-factor Secret]]></item>
-		<item name="wcf.user.twofa.secret.description"><![CDATA[Scan the QR code or enter the displayed Secret into your Google Authenticator. To active Two-factor Authentication you need to enter the code that displayed on your phone into the input below.]]></item>
-		<item name="wcf.user.twofa.enable.success"><![CDATA[Two-factor Authentication successfully was enabled. Your emergency code is: <code>{$twofaEmergency}</code>. Keep your emergency code in a safe place, you will need it to disable Two-factor Authentication in case your Phone stops working or gets lost.]]></item>
-		<item name="wcf.user.twofa.disable"><![CDATA[Disable Two-factor Authentication]]></item>
-		<item name="wcf.user.twofa.disable.success"><![CDATA[Two-factor Authentication successfully was disabled.]]></item>
+		<item name="wcf.user.twofa.secret"><![CDATA[Two-Factor Secret]]></item>
+		<item name="wcf.user.twofa.secret.description"><![CDATA[Scan the QR code or enter the displayed Secret into your Google Authenticator. To activate Two-Factor Authentication you need to enter the code that displayed on your phone into the input below.]]></item>
+		<item name="wcf.user.twofa.enable.success"><![CDATA[Two-Factor Authentication was successfully enabled. Your emergency code is: <code>{$twofaEmergency}</code>. Keep your emergency code in a safe place as you will need it to disable Two-Factor Authentication in case your Phone stops working or gets lost.]]></item>
+		<item name="wcf.user.twofa.disable"><![CDATA[Disable Two-Factor Authentication]]></item>
+		<item name="wcf.user.twofa.disable.success"><![CDATA[Two-Factor Authentication was successfully disabled.]]></item>
 	</category>
 </language>
