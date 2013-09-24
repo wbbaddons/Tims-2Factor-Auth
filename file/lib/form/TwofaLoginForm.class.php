@@ -86,6 +86,12 @@ class TwofaLoginForm extends RecaptchaForm {
 			$twofaHandler->validate($this->twofaCode, WCF::getUser());
 			WCF::getSession()->register('twofa', WCF::getUser()->userID);
 			
+			// remember auth
+			\wcf\util\Signer::setSignedCookie('twofa', serialize(array(
+				'userID' => WCF::getUser()->userID,
+				'expires' => TIME_NOW + TWOFA_REASK_PERIOD * 86400
+			)), TIME_NOW + TWOFA_REASK_PERIOD * 86400);
+			
 			HeaderUtil::redirect($_REQUEST['url']);
 		}
 	}

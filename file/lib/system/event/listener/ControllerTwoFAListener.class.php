@@ -46,6 +46,19 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 			return;
 		}
 		
+		// check cookie
+		try {
+			$cookie = \wcf\util\Signer::getSignedCookie('twofa');
+			if ($cookie) {
+				$cookie = unserialize($cookie);
+				
+				if ($cookie['userID'] === WCF::getUser()->userID) {
+					if ($cookie['expires'] > TIME_NOW) return;
+				}
+			}
+		}
+		catch (\wcf\system\exception\SystemException $e) { }
+		
 		// code already was asked during this session
 		if (WCF::getSession()->getVar('twofa') === WCF::getUser()->userID) return;
 		
