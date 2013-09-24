@@ -26,10 +26,6 @@
 		<excludedpackage>com.tapatalk.wbb4</excludedpackage>
 	</excludepackages>
 	
-	<phprequirements>
-		<function><![CDATA[hash_hmac]]></function>
-	</phprequirements>
-	
 	<instructions type="install">
 		<instruction type="language">language/*.xml</instruction>
 		<instruction type="file">file.tar</instruction>
