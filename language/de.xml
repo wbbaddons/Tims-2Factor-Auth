@@ -16,4 +16,14 @@
 		<item name="wcf.user.twofa.disable"><![CDATA[Zwei-Wege-Authentifizierung deaktivieren]]></item>
 		<item name="wcf.user.twofa.disable.success"><![CDATA[Die Zwei-Wege-Authentifizierung wurde erfolgreich deaktiviert.]]></item>
 	</category>
+	
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.security.general.twofa"><![CDATA[Zwei-Wege-Authentifizierung]]></item>
+		<item name="wcf.acp.option.twofa_acp_only"><![CDATA[Nur in der Administration]]></item>
+		<item name="wcf.acp.option.twofa_acp_only.description"><![CDATA[Aktiviert die Zwei-Wege-Authentifizierung ausschließlich in Administrationsoberfläche.]]></item>
+		<item name="wcf.acp.option.twofa_acp_require"><![CDATA[Aktivierungszwang für Administratoren]]></item>
+		<item name="wcf.acp.option.twofa_acp_require.description"><![CDATA[Erlaubt den Zugriff auf die Administrationsoberfläche nur, wenn der Benutzeraccount mit der Zwei-Wege-Authentifizierung geschützt ist.]]></item>
+		<item name="wcf.acp.option.twofa_reask_period"><![CDATA[Ruhezeit]]></item>
+		<item name="wcf.acp.option.twofa_reask_period.description"><![CDATA[Zeit, in der keine erneute Abfrage erfolgt. [Zeit in Tagen]]]></item>
+	</category>
 </language>

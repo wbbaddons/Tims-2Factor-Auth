@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/option.xsd">
 	<import>
+		<categories>
+			<category name="security.general.twofa">
+				<parent>security.general</parent>
+			</category>
+		</categories>
+		
 		<options>
-			<!-- general chat options -->
 			<option name="twofa_acp_only">
-				<categoryname>security.general.session</categoryname>
+				<categoryname>security.general.twofa</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>0</defaultvalue>
 			</option>
 			<option name="twofa_acp_require">
-				<categoryname>security.general.session</categoryname>
+				<categoryname>security.general.twofa</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>0</defaultvalue>
 			</option>
 			<option name="twofa_reask_period">
-				<categoryname>security.general.session</categoryname>
+				<categoryname>security.general.twofa</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>7</defaultvalue>
 				<minvalue>0</minvalue>
