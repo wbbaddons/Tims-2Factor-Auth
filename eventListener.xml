@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/eventListener.xsd">
 	<import>
+		<!-- \wcf\form\AccountManagementForm -->
 		<eventlistener>
 			<eventclassname>wcf\form\AccountManagementForm</eventclassname>
 			<eventname>readData</eventname>
@@ -33,6 +34,7 @@
 			<listenerclassname>wcf\system\event\listener\AccountManagementFormTwoFAListener</listenerclassname>
 		</eventlistener>
 		
+		<!-- \wcf\page\AbstractPage -->
 		<eventlistener>
 			<eventclassname>wcf\page\AbstractPage</eventclassname>
 			<eventname>readParameters</eventname>
@@ -49,6 +51,7 @@
 			<listenerclassname>wcf\system\event\listener\ControllerTwoFAListener</listenerclassname>
 		</eventlistener>
 		
+		<!-- \wcf\action\AbstractAction -->
 		<eventlistener>
 			<eventclassname>wcf\action\AbstractAction</eventclassname>
 			<eventname>readParameters</eventname>
@@ -63,6 +66,20 @@
 			<environment>admin</environment>
 			<inherit>1</inherit>
 			<listenerclassname>wcf\system\event\listener\ControllerTwoFAListener</listenerclassname>
+		</eventlistener>
+		
+		<!-- \wcf\system\cronjob\HourlyCleanUpCronjob -->
+		<eventlistener>
+			<eventclassname>wcf\system\cronjob\HourlyCleanUpCronjob</eventclassname>
+			<eventname>execute</eventname>
+			<listenerclassname>wcf\system\event\listener\DailyCleanUpCronjobExecuteTwofaCleanUpListener</listenerclassname>
+			<environment>user</environment>
+		</eventlistener>
+		<eventlistener>
+			<eventclassname>wcf\system\cronjob\HourlyCleanUpCronjob</eventclassname>
+			<eventname>execute</eventname>
+			<listenerclassname>wcf\system\event\listener\DailyCleanUpCronjobExecuteTwofaCleanUpListener</listenerclassname>
+			<environment>admin</environment>
 		</eventlistener>
 	</import>
 </data>
