@@ -69,6 +69,7 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 				if (WCF::getUser()->twofaSecret) {
 					if ($this->disable) {
 						if (mb_strlen($this->code) === 0) throw new UserInputException('twofaCode');
+						if (\wcf\util\PasswordUtil::secureCompare($this->code, WCF::getUser()->twofaEmergency)) return;
 						
 						$twofaHandler->validate($this->code, WCF::getUser());
 					}
@@ -87,7 +88,8 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 					if ($this->disable) {
 						$userAction = new \wcf\data\user\UserAction(array(WCF::getUser()), 'update', array(
 							'data' => array(
-								'twofaSecret' => null
+								'twofaSecret' => null,
+								'twofaEmergency' => ''
 							)
 						));
 						$userAction->executeAction();

@@ -26,7 +26,7 @@
 	<dl{if $errorField == 'twofaCode'} class="formError"{/if}>
 		<dt><label for="twofaCode">{lang}wcf.user.twofa.code{/lang}</label></dt>
 		<dd>
-			<input type="text" id="twofaCode" name="twofaCode" value="" maxlength="6" autocomplete="off" class="short" />
+			<input type="text" id="twofaCode" name="twofaCode" value="" autocomplete="off" class="short" />
 			
 			{if $errorField == 'twofaCode'}
 				<small class="innerError">
