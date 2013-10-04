@@ -109,7 +109,7 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 					));
 					$userAction->executeAction();
 					WCF::getUser()->twofaSecret = $this->secret;
-					WCF::getSession()->register('twofa', true);
+					WCF::getSession()->register('twofa', WCF::getUser()->userID);
 					
 					$success = WCF::getTPL()->get('success') ?: array();
 					$success[] = 'wcf.user.twofa.enable.success';
