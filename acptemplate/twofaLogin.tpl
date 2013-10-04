@@ -4,6 +4,8 @@
 	<p><strong>{lang}wcf.user.twofa.required{/lang}</strong></p>
 </div>
 
+{include file='formError'}
+
 <form method="post" action="{link controller='TwofaLogin' url=$url}{/link}">
 	<div class="container containerPadding marginTop">
 		<fieldset>
@@ -35,6 +37,7 @@
 	
 	<div class="formSubmit">
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
+		{@SECURITY_TOKEN_INPUT_TAG}
 	</div>
 </form>
 
