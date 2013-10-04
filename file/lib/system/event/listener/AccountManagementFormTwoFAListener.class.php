@@ -80,7 +80,7 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 					$twofaHandler->validate($this->code, new \wcf\data\user\User(null, array('userID' => WCF::getUser()->userID, 'twofaSecret' => $this->secret)));
 				}
 			break;
-			case 'save':
+			case 'saved':
 				if (mb_strlen($this->code) === 0) return;
 				
 				if (WCF::getUser()->twofaSecret) {
