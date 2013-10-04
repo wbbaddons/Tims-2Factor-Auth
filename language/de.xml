@@ -10,6 +10,7 @@
 		<item name="wcf.user.twofa.emergency.success"><![CDATA[Der Notfall-Code wurde erfolgreich verwendet und die Zwei-Wege-Authentifizierung deaktiviert.]]></item>
 		<item name="wcf.user.twofa.required"><![CDATA[Ihr Benutzerkonto ist mit der Zwei-Wege-Authentifizierung geschützt. Sie benötigen den aktuellen Code, um fortzufahren.]]></item>
 		<item name="wcf.user.twofa.required.code.description"><![CDATA[Geben Sie den Code, der Ihnen in der App angezeigt wird, ein, um fortzufahren.]]></item>
+		<item name="wcf.user.twofa.acpRequired"><![CDATA[Der Zugriff auf die Administration ist nur möglich, wenn Ihr Benutzeraccount mit der Zwei-Wege-Authentifizierung geschützt ist.]]></item>
 		<item name="wcf.user.twofa.secret"><![CDATA[Zwei-Wege-Authentifizierungs-Schlüssel]]></item>
 		<item name="wcf.user.twofa.secret.description"><![CDATA[Scannen Sie den angezeigten QR-Code oder geben Sie den angezeigten Schlüssel in Ihrem Google Authenticator ein. Um die Zwei-Wege-Authentifizierung zu aktivieren, geben Sie nun noch den in der App angezeigten Code unterhalb ein.]]></item>
 		<item name="wcf.user.twofa.enable.success"><![CDATA[Die Zwei-Wege-Authentifizierung wurde erfolgreich aktiviert. Ihr Notfall-Code lautet: <code>{$twofaEmergency}</code>. Bewahren Sie diesen gut auf, er dient dazu, die Zwei-Wege-Authentifizierung zu deaktivieren, falls Ihre App unbrauchbar werden sollte.]]></item>
@@ -22,7 +23,7 @@
 		<item name="wcf.acp.option.twofa_acp_only"><![CDATA[Nur in der Administration]]></item>
 		<item name="wcf.acp.option.twofa_acp_only.description"><![CDATA[Aktiviert die Zwei-Wege-Authentifizierung ausschließlich in Administrationsoberfläche.]]></item>
 		<item name="wcf.acp.option.twofa_acp_require"><![CDATA[Aktivierungszwang für Administratoren]]></item>
-		<item name="wcf.acp.option.twofa_acp_require.description"><![CDATA[Erlaubt den Zugriff auf die Administrationsoberfläche nur, wenn der Benutzeraccount mit der Zwei-Wege-Authentifizierung geschützt ist.]]></item>
+		<item name="wcf.acp.option.twofa_acp_require.description"><![CDATA[Erlaubt den Zugriff auf die Administrationsoberfläche nur, wenn der Benutzeraccount mit der Zwei-Wege-Authentifizierung geschützt ist.<br /><strong>Achtung:</strong> Sie verlieren sofort nach Aktivierung dieser Option Zugriff auf die Administration, sofern ihr Benutzerkonto nicht mit der Zwei-Wege-Authentifizierung geschützt ist!]]></item>
 		<item name="wcf.acp.option.twofa_reask_period"><![CDATA[Ruhezeit]]></item>
 		<item name="wcf.acp.option.twofa_reask_period.description"><![CDATA[Zeit, in der keine erneute Abfrage erfolgt. [Zeit in Tagen]]]></item>
 	</category>

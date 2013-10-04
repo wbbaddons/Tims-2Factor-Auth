@@ -10,6 +10,7 @@
 		<item name="wcf.user.twofa.emergency.success"><![CDATA[The emergency code was successfully used and Two-Factor Authentication was disabled.]]></item>
 		<item name="wcf.user.twofa.required"><![CDATA[Your account is protected with Two-Factor authentication. You need the current code to proceed.]]></item>
 		<item name="wcf.user.twofa.required.code.description"><![CDATA[Enter the code that is displayed on your phone to proceed.]]></item>
+		<item name="wcf.user.twofa.acpRequired"><![CDATA[You may only access the Administration Control Panel if your account is protected with Two-Factor Authentication.]]></item>
 		<item name="wcf.user.twofa.secret"><![CDATA[Two-Factor Secret]]></item>
 		<item name="wcf.user.twofa.secret.description"><![CDATA[Scan the QR code or enter the displayed Secret into your Google Authenticator. To activate Two-Factor Authentication you need to enter the code that displayed on your phone into the input below.]]></item>
 		<item name="wcf.user.twofa.enable.success"><![CDATA[Two-Factor Authentication was successfully enabled. Your emergency code is: <code>{$twofaEmergency}</code>. Keep your emergency code in a safe place as you will need it to disable Two-Factor Authentication in case your Phone stops working or gets lost.]]></item>
@@ -22,7 +23,7 @@
 		<item name="wcf.acp.option.twofa_acp_only"><![CDATA[Administration only]]></item>
 		<item name="wcf.acp.option.twofa_acp_only.description"><![CDATA[Activates Two-Factor Authentication in Administration Control Panel only.]]></item>
 		<item name="wcf.acp.option.twofa_acp_require"><![CDATA[Require activation for Administators]]></item>
-		<item name="wcf.acp.option.twofa_acp_require.description"><![CDATA[Denies access to the Administration Control Panel if the account is not protected with Two-Factor Authentication.]]></item>
+		<item name="wcf.acp.option.twofa_acp_require.description"><![CDATA[Denies access to the Administration Control Panel if the account is not protected with Two-Factor Authentication.<br /><strong>Heads up:</strong> You will instantly lose access to the Administration Control Panel if you enable this setting and your account is not protected with Two-Factor Authentication!]]></item>
 		<item name="wcf.acp.option.twofa_reask_period"><![CDATA[Remember Period]]></item>
 		<item name="wcf.acp.option.twofa_reask_period.description"><![CDATA[Period, in which the user will not be asked again. [time in days]]]></item>
 	</category>
