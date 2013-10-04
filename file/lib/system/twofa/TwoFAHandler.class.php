@@ -73,32 +73,34 @@ class TwoFAHandler extends \wcf\system\SingletonFactory {
 	public function validate($code, \wcf\data\user\User $user) {
 		WCF::getDB()->beginTransaction();
 		try {
-			// check blacklisted codes
-			$this->checkBlacklist->execute(array(TIME_NOW - (self::FUZZ + 2) * 30, $code, $user->userID));
-			if ($this->checkBlacklist->fetchColumn()) throw new UserInputException('twofaCode', 'used');
-			
-			// optimized \PHPGangsta_GoogleAuthenticator::verifyCode() (PasswordUtil::secureCompare())
-			$currentTimeSlice = floor(time() / 30);
-			
-			$valid = false;
-			for ($i = -self::FUZZ; $i <= self::FUZZ; $i++) {
-				$calculatedCode = $this->ga->getCode($user->twofaSecret, $currentTimeSlice + $i);
-				if (PasswordUtil::secureCompare($code, $calculatedCode)) {
-					$valid = true;
+			try {
+				// check blacklisted codes
+				$this->checkBlacklist->execute(array(TIME_NOW - (self::FUZZ + 2) * 30, $code, $user->userID));
+				if ($this->checkBlacklist->fetchColumn()) throw new UserInputException('twofaCode', 'used');
+				
+				// optimized \PHPGangsta_GoogleAuthenticator::verifyCode() (PasswordUtil::secureCompare())
+				$currentTimeSlice = floor(time() / 30);
+				
+				$valid = false;
+				for ($i = -self::FUZZ; $i <= self::FUZZ; $i++) {
+					$calculatedCode = $this->ga->getCode($user->twofaSecret, $currentTimeSlice + $i);
+					if (PasswordUtil::secureCompare($code, $calculatedCode)) {
+						$valid = true;
+					}
 				}
+				if (!$valid) throw new UserInputException('twofaCode', 'notValid');
+				
+				// add code to blacklist
+				$this->insertBlacklist->execute(array(TIME_NOW, $code, $user->userID));
+				WCF::getDB()->commitTransaction();
 			}
-			if (!$valid) throw new UserInputException('twofaCode', 'notValid');
-			
-			// add code to blacklist
-			$this->insertBlacklist->execute(array(TIME_NOW, $code, $user->userID));
-			WCF::getDB()->commitTransaction();
-		}
-		catch (UserInputException $e) {
-			// add invalid codes to blacklist as well
-			$this->insertBlacklist->execute(array(TIME_NOW, $code, $user->userID));
-			WCF::getDB()->commitTransaction();
-			
-			throw $e;
+			catch (UserInputException $e) {
+				// add invalid codes to blacklist as well
+				$this->insertBlacklist->execute(array(TIME_NOW, $code, $user->userID));
+				WCF::getDB()->commitTransaction();
+				
+				throw $e;
+			}
 		}
 		catch (\Exception $e) {
 			WCF::getDB()->rollbackTransaction();
