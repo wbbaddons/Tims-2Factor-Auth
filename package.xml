@@ -2,7 +2,7 @@
 <package name="be.bastelstu.wcf.twofa" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
 	<packageinformation>
 		<packagename><![CDATA[Tims 2-Factor Authentication]]></packagename>
-		<packagename language="de"><![CDATA[Tims 2-Faktor Authentifizierung]]></packagename>
+		<packagename language="de"><![CDATA[Tims 2-Wege Authentifizierung]]></packagename>
 		<packagedescription><![CDATA[]]></packagedescription>
 		<packagedescription language="de"><![CDATA[]]></packagedescription>
 		<isapplication>0</isapplication>
