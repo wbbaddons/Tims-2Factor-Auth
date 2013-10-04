@@ -44,7 +44,6 @@
 	</div>
 	
 	<div class="formSubmit">
-		<input type="hidden" name="twofaForm" value="1" />
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
 	</div>
 </form>
