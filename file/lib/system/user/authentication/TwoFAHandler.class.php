@@ -1,9 +1,8 @@
 <?php
-namespace wcf\system\twofa;
-use wcf\util\PasswordUtil;
-
+namespace wcf\system\user\authentication;
 use \wcf\system\exception\UserInputException;
 use \wcf\system\WCF;
+use \wcf\util\PasswordUtil;
 
 /**
  * TwoFA Handler

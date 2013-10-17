@@ -42,7 +42,7 @@ class AccountManagementFormTwoFAListener implements \wcf\system\event\IEventList
 		require_once(WCF_DIR.'lib/system/api/twofa/PHPGangsta/GoogleAuthenticator.php');
 		
 		$ga = new \PHPGangsta_GoogleAuthenticator();
-		$twofaHandler = \wcf\system\twofa\TwoFAHandler::getInstance();
+		$twofaHandler = \wcf\system\user\authentication\TwoFAHandler::getInstance();
 		
 		switch ($eventName) {
 			case 'readData':
