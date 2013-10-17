@@ -1,5 +1,5 @@
 <?php
-namespace chat\system\event\listener;
+namespace wcf\system\event\listener;
 
 /**
  * Vaporizes unneeded data.
