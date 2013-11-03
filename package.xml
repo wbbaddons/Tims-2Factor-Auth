@@ -23,7 +23,7 @@
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage>com.tapatalk.wbb4</excludedpackage>
+		<excludedpackage version="*">com.tapatalk.wbb4</excludedpackage>
 	</excludedpackages>
 	
 	<instructions type="install">
