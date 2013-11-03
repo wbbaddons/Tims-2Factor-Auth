@@ -67,7 +67,7 @@ class TwofaLoginForm extends RecaptchaForm {
 		require_once(WCF_DIR.'lib/system/api/twofa/PHPGangsta/GoogleAuthenticator.php');
 		
 		$ga = new \PHPGangsta_GoogleAuthenticator();
-		$twofaHandler = \wcf\system\twofa\TwoFAHandler::getInstance();
+		$twofaHandler = \wcf\system\user\authentication\TwoFAHandler::getInstance();
 		
 		if (\wcf\util\PasswordUtil::secureCompare($this->twofaCode, WCF::getUser()->twofaEmergency)) {
 			// emergency code was used, disable 2 factor
