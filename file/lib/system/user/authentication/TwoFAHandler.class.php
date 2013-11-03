@@ -101,6 +101,10 @@ class TwoFAHandler extends \wcf\system\SingletonFactory {
 				throw $e;
 			}
 		}
+		catch (\wcf\system\database\DatabaseException $e2) {
+			WCF::getDB()->rollbackTransaction();
+			if (isset($e)) throw $e;
+		}
 		catch (\Exception $e) {
 			WCF::getDB()->rollbackTransaction();
 			
