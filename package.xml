@@ -6,8 +6,8 @@
 		<packagedescription><![CDATA[Allows users to protect their account by a requiring an unique code at login.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Erlaubt Benutzern ihren Account zu schützen, indem ein eindeutiger Code beim Einloggen erfragt wird.]]></packagedescription>
 		<isapplication>0</isapplication>
-		<version>1.0.0 Beta 3</version>
-		<date>2013-09-24</date>
+		<version>1.0.0 Beta 4</version>
+		<date>2013-11-04</date>
 		<license><![CDATA[BSD 3-Clause License <http://opensource.org/licenses/BSD-3-Clause>]]></license>
 	</packageinformation>
 	
@@ -34,6 +34,14 @@
 		<instruction type="sql">install.sql</instruction>
 		<instruction type="option">option.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
+		<instruction type="eventListener">eventListener.xml</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.0 Beta 3">
+		<instruction type="language">language/*.xml</instruction>
+		<instruction type="file">file.tar</instruction>
+		<instruction type="template">template.tar</instruction>
+		<instruction type="acpTemplate">acptemplate.tar</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>
 	</instructions>
 	
