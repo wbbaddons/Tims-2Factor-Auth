@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="be.bastelstu.wcf.twofa" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
 	<packageinformation>
-		<packagename><![CDATA[Tims 2-Factor Authentication]]></packagename>
+		<packagename><![CDATA[Tim’s 2-Factor Authentication]]></packagename>
 		<packagename language="de"><![CDATA[Tims 2-Wege-Authentifizierung]]></packagename>
 		<packagedescription><![CDATA[Allows users to protect their account by a requiring an unique code at login.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Erlaubt Benutzern ihren Account zu schützen, indem ein eindeutiger Code beim Einloggen erfragt wird.]]></packagedescription>
