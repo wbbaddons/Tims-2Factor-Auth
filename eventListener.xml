@@ -44,6 +44,31 @@
 			<listenerclassname>wcf\system\event\listener\AccountManagementFormTwoFAListener</listenerclassname>
 		</eventlistener>
 		
+		<!-- \wcf\acp\form\UserEditForm -->
+		<eventlistener>
+			<eventclassname>wcf\acp\form\UserEditForm</eventclassname>
+			<eventname>assignVariables</eventname>
+			<environment>admin</environment>
+			<inherit>0</inherit>
+			<listenerclassname>wcf\system\event\listener\UserEditFormTwoFAListener</listenerclassname>
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wcf\acp\form\UserEditForm</eventclassname>
+			<eventname>readFormParameters</eventname>
+			<environment>admin</environment>
+			<inherit>0</inherit>
+			<listenerclassname>wcf\system\event\listener\UserEditFormTwoFAListener</listenerclassname>
+		</eventlistener>
+		
+		<eventlistener>
+			<eventclassname>wcf\acp\form\UserEditForm</eventclassname>
+			<eventname>save</eventname>
+			<environment>admin</environment>
+			<inherit>0</inherit>
+			<listenerclassname>wcf\system\event\listener\UserEditFormTwoFAListener</listenerclassname>
+		</eventlistener>
+		
 		<!-- \wcf\page\AbstractPage -->
 		<eventlistener>
 			<eventclassname>wcf\page\AbstractPage</eventclassname>

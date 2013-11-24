@@ -7,5 +7,11 @@
 			<eventname>fieldsets</eventname>
 			<templatecode><![CDATA[{include file='__twofaAccountManagement'}]]></templatecode>
 		</templatelistener>
+		<templatelistener name="userAddTwoFA">
+			<environment>admin</environment>
+			<templatename>userAdd</templatename>
+			<eventname>passwordFields</eventname>
+			<templatecode><![CDATA[{include file='__twofaUserAdd'}]]></templatecode>
+		</templatelistener>
 	</import>
 </data>
