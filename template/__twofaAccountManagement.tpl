@@ -1,3 +1,4 @@
+{if !$twofaSecret|isset || !TWOFA_ACP_ONLY || $__wcf->session->getPermission('admin.general.canUseAcp')} {* hide setting if ACP_ONLY is set and one may not enter the ACP anyway *}
 <fieldset>
 	<legend>{lang}wcf.user.twofa{/lang}</legend>
 	<small>{lang}wcf.user.twofa.description{/lang}</small>
@@ -39,3 +40,4 @@
 		</dd>
 	</dl>
 </fieldset>
+{/if}
