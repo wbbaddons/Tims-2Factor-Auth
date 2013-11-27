@@ -3,7 +3,7 @@
 	<packageinformation>
 		<packagename><![CDATA[Tim’s 2-Factor Authentication]]></packagename>
 		<packagename language="de"><![CDATA[Tims 2-Wege-Authentifizierung]]></packagename>
-		<packagedescription><![CDATA[Allows users to protect their account by a requiring an unique code at login.]]></packagedescription>
+		<packagedescription><![CDATA[Allows users to protect their account by requiring an unique code at login.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Erlaubt Benutzern ihren Account zu schützen, indem ein eindeutiger Code beim Einloggen erfragt wird.]]></packagedescription>
 		<isapplication>0</isapplication>
 		<version>1.0.0 Beta 5</version>
