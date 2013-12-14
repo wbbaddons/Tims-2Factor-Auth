@@ -16,7 +16,8 @@
 			<dd>
 				<code class="inlineCode">{$twofaSecret}</code><br />
 				{if PAGE_TITLE}
-					{assign var=twofaQRData value='otpauth://totp/'|concat:PAGE_TITLE:'?secret=':$twofaSecret}
+					{assign var=twofaPageTitle value=PAGE_TITLE|language}
+					{assign var=twofaQRData value='otpauth://totp/'|concat:$twofaPageTitle:'?secret=':$twofaSecret}
 					{@$twofaQRData|qr}
 				{/if}
 				<input type="hidden" id="twofaSecret" name="twofaSecret" value="{$twofaSecret}" />
