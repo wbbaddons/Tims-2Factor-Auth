@@ -6,8 +6,8 @@
 		<packagedescription><![CDATA[Tim’s 2-Factor Authentication provides additional proctection for your users’ accounts. After login it ensures that the user himself sits in front of the computer by asking for an ephemeral security code!]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Tims 2-Wege-Authentifizierung bietet zusätzlichen Schutz für Ihre Nutzer. Nach dem Login stellt es sicher, dass die richtige Person vor dem Bildschirm sitzt, indem ein nur kurzzeitig gültiger Sicherheits-Code abgefragt wird.]]></packagedescription>
 		<isapplication>0</isapplication>
-		<version>1.0.0 Beta 5</version>
-		<date>2013-11-25</date>
+		<version>1.0.0 RC 1</version>
+		<date>2013-12-12</date>
 		<license><![CDATA[BSD 3-Clause License <http://opensource.org/licenses/BSD-3-Clause>]]></license>
 	</packageinformation>
 	
@@ -35,6 +35,10 @@
 		<instruction type="option">option.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.0 Beta 5">
+		<instruction type="template">template.tar</instruction>
 	</instructions>
 	
 	<instructions type="update" fromversion="1.0.0 Beta 4">
