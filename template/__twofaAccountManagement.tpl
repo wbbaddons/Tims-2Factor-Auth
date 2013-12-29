@@ -15,8 +15,8 @@
 			<dt>{lang}wcf.user.twofa.secret{/lang}</dt>
 			<dd>
 				<code class="inlineCode">{$twofaSecret}</code><br />
-				{if PAGE_TITLE}
-					{assign var=twofaPageTitle value=PAGE_TITLE|language}
+				{if PAGE_TITLE|language}
+					{assign var=twofaPageTitle value=PAGE_TITLE|language|rawurlencode}
 					{assign var=twofaQRData value='otpauth://totp/'|concat:$twofaPageTitle:'?secret=':$twofaSecret}
 					{@$twofaQRData|qr}
 				{/if}
