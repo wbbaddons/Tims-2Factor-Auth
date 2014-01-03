@@ -15,6 +15,7 @@ use \wcf\util\HeaderUtil;
  * @subpackage	form
  */
 class TwofaLoginForm extends RecaptchaForm {
+	const AVAILABLE_DURING_OFFLINE_MODE = true;
 	/*
 	 * String that contains the Two-Factor Code entered by the user
 	 * @var string
