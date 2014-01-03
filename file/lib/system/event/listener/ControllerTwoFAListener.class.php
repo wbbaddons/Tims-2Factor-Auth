@@ -23,13 +23,11 @@ class ControllerTwoFAListener implements \wcf\system\event\IEventListener {
 		$controller = \wcf\system\request\RequestHandler::getInstance()->getActiveRequest()->getRequestObject() ;
 		switch (true) {
 			case $controller instanceof \wcf\acp\action\LogoutAction:
+			case $controller instanceof \wcf\form\TwofaLoginForm:
 				return;
 			break;
 			case $controller instanceof \wcf\page\AbstractAuthedPage:
 				if (isset($_REQUEST['at'])) return;
-			break;
-			case $controller instanceof \wcf\form\TwofaLoginForm:
-				return;
 			break;
 		}
 		
