@@ -13,5 +13,11 @@
 			<eventname>passwordFields</eventname>
 			<templatecode><![CDATA[{include file='__twofaUserAdd'}]]></templatecode>
 		</templatelistener>
+		<templatelistener name="bastelstubeTwoFA">
+			<environment>admin</environment>
+			<templatename>__bastelstubeTopMenu</templatename>
+			<eventname>links</eventname>
+			<templatecode><![CDATA[<li class="dropdownDivider"></li><li><a class="externalURL" href="{@$__wcf->getPath()}acp/dereferrer.php?url={"https://tims.bastelstu.be/forum/index.php/Board/13-Tims-2-Wege-Authentifizierung/"|rawurlencode}">{lang}wcf.user.twofa{/lang}</a></li>]]></templatecode>
+		</templatelistener>
 	</import>
 </data>
