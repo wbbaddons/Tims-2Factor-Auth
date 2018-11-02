@@ -4,7 +4,7 @@
 		<templatelistener name="accountManagementTwoFA">
 			<environment>user</environment>
 			<templatename>accountManagement</templatename>
-			<eventname>fieldsets</eventname>
+			<eventname>sections</eventname>
 			<templatecode><![CDATA[{include file='__twofaAccountManagement'}]]></templatecode>
 		</templatelistener>
 		<templatelistener name="userAddTwoFA">
